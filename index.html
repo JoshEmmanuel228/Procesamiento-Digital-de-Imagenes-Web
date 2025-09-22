@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEXAION PROCESADOR DE ESCENARIOS INTELIGENTE</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="glitch-container">
+        <h1 class="glitch" data-text="MEXAION Procesador Inteligente"></h1>
+    </div>
+
+    <div class="top-controls-bar">
+        <div class="dropdown">
+            <button class="dropdown-btn"><i class="fas fa-sliders-h"></i> Operaciones Básicas</button>
+            <div class="dropdown-content">
+                <div class="button-grid">
+                    <button class="cyber-btn" data-operation="grayscale">
+                        <i class="fas fa-adjust"></i> Escala de Grises
+                    </button>
+                    <button class="cyber-btn" data-operation="threshold">
+                        <i class="fas fa-th"></i> Umbral
+                    </button>
+                    <button class="cyber-btn" data-operation="noise">
+                        <i class="fas fa-broadcast-tower"></i> Ruido
+                    </button>
+                    <button class="cyber-btn" data-operation="histogram">
+                        <i class="fas fa-chart-bar"></i> Histograma
+                    </button>
+                    <button class="cyber-btn" data-operation="arithmetic">
+                        <i class="fas fa-calculator"></i> Aritmética
+                    </button>
+                    <button class="cyber-btn" data-operation="logical">
+                        <i class="fas fa-code-branch"></i> Lógica
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn"><i class="fas fa-filter"></i> Filtros</button>
+            <div class="dropdown-content">
+                <div class="button-grid">
+                    <button class="cyber-btn" data-operation="linear_filters">
+                        <i class="fas fa-wave-square"></i> Filtros Lineales
+                    </button>
+                    <button class="cyber-btn" data-operation="nonlinear_filters">
+                        <i class="fas fa-sort-amount-down"></i> Filtros No Lineales
+                    </button>
+                    <button class="cyber-btn" data-operation="smoothing">
+                        <i class="fas fa-blur"></i> Suavizado
+                    </button>
+                    <button class="cyber-btn" data-operation="morphology">
+                        <i class="fas fa-shapes"></i> Morfología
+                    </button>
+                    <button class="cyber-btn" data-operation="convolution">
+                        <i class="fas fa-project-diagram"></i> Convolución
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn"><i class="fas fa-cube"></i> Transformaciones</button>
+            <div class="dropdown-content">
+                <div class="button-grid">
+                    <button class="cyber-btn" data-operation="rotation">
+                        <i class="fas fa-sync"></i> Rotación
+                    </button>
+                    <button class="cyber-btn" data-operation="scaling">
+                        <i class="fas fa-expand"></i> Escalado
+                    </button>
+                    <button class="cyber-btn" data-operation="perspective">
+                        <i class="fas fa-cube"></i> Perspectiva
+                    </button>
+                    <button class="cyber-btn" data-operation="flip">
+                        <i class="fas fa-flip-horizontal"></i> Voltear
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn"><i class="fas fa-magic"></i> Efectos</button>
+            <div class="dropdown-content">
+                <div class="button-grid">
+                    <button class="cyber-btn" data-operation="blend">
+                        <i class="fas fa-layer-group"></i> Mezcla
+                    </button>
+                    <button class="cyber-btn" data-operation="bitwise">
+                        <i class="fas fa-code"></i> Bit a Bit
+                    </button>
+                    <button class="cyber-btn" data-operation="watermark">
+                        <i class="fas fa-stamp"></i> Marca de Agua
+                    </button>
+                    <button class="cyber-btn" data-operation="sepia">
+                        <i class="fas fa-palette"></i> Sepia
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn"><i class="fas fa-robot"></i> Detección</button>
+            <div class="dropdown-content">
+                <div class="button-grid">
+                    <button class="cyber-btn" data-operation="face">
+                        <i class="fas fa-user"></i> Detección de Rostros
+                    </button>
+                    <button class="cyber-btn" data-operation="object">
+                        <i class="fas fa-cube"></i> Detección de Objetos
+                    </button>
+                    <button class="cyber-btn" data-operation="motion">
+                        <i class="fas fa-video"></i> Detección de Movimiento
+                    </button>
+                    <button class="cyber-btn" data-operation="corner">
+                        <i class="fas fa-dot-circle"></i> Detección de Esquinas
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn"><i class="fas fa-palette"></i> Espacios de Color</button>
+            <div class="dropdown-content">
+                <div class="button-grid">
+                    <button class="cyber-btn" data-operation="rgb_channels">
+                        <i class="fas fa-layer-group"></i> Canales RGB
+                    </button>
+                    <button class="cyber-btn" data-operation="lab">
+                        <i class="fas fa-adjust"></i> LAB
+                    </button>
+                    <button class="cyber-btn" data-operation="ycrcb">
+                        <i class="fas fa-adjust"></i> YCrCb
+                    </button>
+                    <button class="cyber-btn" data-operation="hls">
+                        <i class="fas fa-adjust"></i> HLS
+                    </button>
+                    <button class="cyber-btn" data-operation="yuv">
+                        <i class="fas fa-adjust"></i> YUV
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn"><i class="fas fa-tags"></i> Componentes Conectados</button>
+            <div class="dropdown-content">
+                <div class="button-grid">
+                    <button class="cyber-btn" data-operation="binary">
+                        <i class="fas fa-square"></i> Imagen Binaria
+                    </button>
+                    <button class="cyber-btn" data-operation="vec4">
+                        <i class="fas fa-th-large"></i> Conectividad-4
+                    </button>
+                    <button class="cyber-btn" data-operation="vec8">
+                        <i class="fas fa-th-large"></i> Conectividad-8
+                    </button>
+                    <button class="cyber-btn" data-operation="contours">
+                        <i class="fas fa-draw-polygon"></i> Contornos y Números
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn"><i class="fas fa-border-all"></i> Detección de Bordes</button>
+            <div class="dropdown-content">
+                <div class="button-grid">
+                    <button class="cyber-btn" data-operation="canny">
+                        <i class="fas fa-border-style"></i> Borde Canny
+                    </button>
+                    <button class="cyber-btn" data-operation="horizontal_edge">
+                        <i class="fas fa-arrows-alt-h"></i> Borde Horizontal
+                    </button>
+                    <button class="cyber-btn" data-operation="vertical_edge">
+                        <i class="fas fa-arrows-alt-v"></i> Borde Vertical
+                    </button>
+                    <button class="cyber-btn" data-operation="sobel">
+                        <i class="fas fa-border-none"></i> Sobel
+                    </button>
+                    <button class="cyber-btn" data-operation="prewitt">
+                        <i class="fas fa-border-none"></i> Prewitt
+                    </button>
+                    <button class="cyber-btn" data-operation="laplacian">
+                        <i class="fas fa-border-none"></i> Laplaciano
+                    </button>
+                    <button class="cyber-btn" data-operation="scharr">
+                        <i class="fas fa-border-none"></i> Scharr
+                    </button>
+                    <button class="cyber-btn" data-operation="kirsch">
+                        <i class="fas fa-border-none"></i> Kirsch
+                    </button>
+                    <button class="cyber-btn" data-operation="roberts">
+                        <i class="fas fa-border-none"></i> Roberts
+                    </button>
+                    <button class="cyber-btn" data-operation="robinson">
+                        <i class="fas fa-compass"></i> Máscaras de Robinson
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content-area">
+            <div class="side-panel">
+                <div class="image-box" id="image1-container">
+                    <h3>Imagen 1</h3>
+                    <div class="image-wrapper">
+                        <img id="image1" src="" alt="Imagen 1">
+                    </div>
+                    <div class="image-upload">
+                        <input type="file" id="image1-input" accept="image/*" class="file-input">
+                        <label for="image1-input" class="upload-btn">
+                            <i class="fas fa-upload"></i> Cargar Imagen 1
+                        </label>
+                        <div class="image-actions">
+                            <button onclick="selectImage(1)" class="cyber-button">Seleccionar</button>
+                            <button onclick="restoreImage(1)" class="cyber-button">Restaurar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-box" id="image2-container">
+                    <h3>Imagen 2</h3>
+                    <div class="image-wrapper">
+                        <img id="image2" src="" alt="Imagen 2">
+                    </div>
+                    <div class="image-upload">
+                        <input type="file" id="image2-input" accept="image/*" class="file-input">
+                        <label for="image2-input" class="upload-btn">
+                            <i class="fas fa-upload"></i> Cargar Imagen 2
+                        </label>
+                        <div class="image-actions">
+                            <button onclick="selectImage(2)" class="cyber-button">Seleccionar</button>
+                            <button onclick="restoreImage(2)" class="cyber-button">Restaurar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-panel">
+                <div class="image-box" id="result-container">
+                    <h3>Imagen Procesada</h3>
+                    <div class="image-wrapper main-viewer" id="main-viewer-wrapper">
+                        <img id="result-image" src="" alt="Imagen Procesada">
+                        <!-- Loupe and Color Inspector Elements -->
+                        <div id="loupe" class="loupe" style="display: none;"></div>
+                        <div id="color-inspector" class="color-inspector" style="display: none;">
+                            <div id="color-swatch"></div>
+                            <div id="color-values"></div>
+                        </div>
+                    </div>
+                    <div id="zoom-controls" class="zoom-controls">
+                        <button id="zoom-in-btn" class="zoom-btn">+</button>
+                        <button id="zoom-out-btn" class="zoom-btn">-</button>
+                    </div>
+                    <button id="download-btn" class="action-btn" disabled>
+                        <i class="fas fa-download"></i> Descargar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="parameters-panel-container">
+            <div class="parameters-panel" id="parameters-panel">
+                <!-- Dynamic parameters will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <span id="notification-message"></span>
+            <button class="close-btn">&times;</button>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="cyber-spinner"></div>
+        <div class="loading-text">Procesando...</div>
+    </div>
+
+    <footer class="cyber-footer">
+        <p>Procesador De Imágenes 2025 | Todos los derechos reservados | Creado por Joshua Emmanuel Meza Rodriguez</p>
+    </footer>
+
+    <div class="contact-bubble">
+        <i class="fas fa-address-card"></i>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:mezarodriguezjm@gmail.com">mezarodriguezjm@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:jmezar1900@alumno.ipn.mx">jmezar1900@alumno.ipn.mx</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:5620539637">5620539637</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Histogram Modal -->
+    <div id="histogram-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Histograma de la Imagen</h2>
+                <button id="close-histogram-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="histogram-chart-container">
+                    <canvas id="histogram-chart"></canvas>
+                </div>
+                <div class="histogram-controls">
+                    <div class="control-group">
+                        <label><input type="checkbox" id="hist-cb-rojo" checked> Rojo</label>
+                        <label><input type="checkbox" id="hist-cb-verde" checked> Verde</label>
+                        <label><input type="checkbox" id="hist-cb-azul" checked> Azul</label>
+                        <label><input type="checkbox" id="hist-cb-luminancia" checked> Luminancia</label>
+                    </div>
+                    <div class="control-group">
+                        <label><input type="checkbox" id="hist-cb-bars"> Mostrar como Barras</label>
+                        <label><input type="checkbox" id="hist-cb-grid" checked> Mostrar Grid</label>
+                        <label><input type="checkbox" id="hist-cb-max-min"> Mostrar Max/Min</label>
+                    </div>
+                    <div class="control-group">
+                        <label for="hist-y-limit">Límite Y:</label>
+                        <select id="hist-y-limit">
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                            <option value="2000">2000</option>
+                            <option value="5000">5000</option>
+                            <option value="10000">10000</option>
+                            <option value="20000">20000</option>
+                            <option value="50000">50000</option>
+                            <option value="100000">100000</option>
+                            <option value="200000">200000</option>
+                            <option value="">Automático</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="save-histogram-btn" class="cyber-button">
+                    <i class="fas fa-save"></i> Guardar Histograma
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    .image-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .control-group {
+        margin: 1rem 0;
+    }
+
+    .control-group label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+    }
+
+    .control-group input[type="checkbox"] {
+        width: 1.2rem;
+        height: 1.2rem;
+        cursor: pointer;
+    }
+
+    .image-wrapper {
+        width: 100%;
+        height: 200px; /* Reduced height for side panel images */
+        border: 2px solid #444;
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1a1a1a;
+        margin-bottom: 1rem;
+    }
+
+    .image-wrapper.main-viewer {
+        height: 100%; /* Allow main viewer to fill space */
+        min-height: 400px;
+    }
+
+    .image-wrapper img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .image-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .file-input {
+        display: none;
+    }
+
+    .upload-btn {
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        background: #2a2a2a;
+        border: 1px solid #444;
+        border-radius: 4px;
+        color: #fff;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .upload-btn:hover {
+        background: #3a3a3a;
+        border-color: #666;
+    }
+
+    .action-btn {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .cyber-footer {
+        background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+        border-top: 2px solid #00ff00;
+        padding: 1rem;
+        text-align: center;
+        margin-top: 2rem;
+        color: #00ff00;
+        font-family: 'Share Tech Mono', monospace;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        box-shadow: 0 -5px 15px rgba(0, 255, 0, 0.2);
+    }
+
+    .cyber-footer p {
+        margin: 0;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .contact-bubble {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+        border: 2px solid #00ff00;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    }
+
+    .contact-bubble i {
+        color: #00ff00;
+        font-size: 1.5rem;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    .contact-bubble:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    }
+
+    .contact-info {
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+        border: 2px solid #00ff00;
+        border-radius: 10px;
+        padding: 1rem;
+        width: 300px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+
+    .contact-bubble:hover .contact-info {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+        color: #00ff00;
+        font-family: 'Share Tech Mono', monospace;
+    }
+
+    .contact-item i {
+        font-size: 1rem;
+    }
+
+    .contact-item a {
+        color: #00ff00;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .contact-item a:hover {
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    }
+    </style>
+
+    <script src="/script.js"></script>
+</body>
+</html>
