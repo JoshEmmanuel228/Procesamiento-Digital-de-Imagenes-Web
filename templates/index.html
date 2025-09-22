@@ -1,0 +1,182 @@
+            <div class="section">
+                <h2>Operaciones Aritméticas</h2>
+                <div class="button-group">
+                    <button onclick="applyOperation('add')" class="cyber-button">Suma</button>
+                    <button onclick="applyOperation('subtract')" class="cyber-button">Resta</button>
+                    <button onclick="applyOperation('multiply')" class="cyber-button">Multiplicación</button>
+                    <button onclick="applyOperation('divide')" class="cyber-button">División</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Espacios de Color</h2>
+                <div class="button-group">
+                    <button onclick="showChannel('R')" class="cyber-button">Canal Rojo</button>
+                    <button onclick="showChannel('G')" class="cyber-button">Canal Verde</button>
+                    <button onclick="showChannel('B')" class="cyber-button">Canal Azul</button>
+                </div>
+                <div class="button-group">
+                    <button onclick="applyColorSpace('LAB')" class="cyber-button">LAB</button>
+                    <button onclick="applyColorSpace('YCrCb')" class="cyber-button">YCrCb</button>
+                    <button onclick="applyColorSpace('HLS')" class="cyber-button">HLS</button>
+                    <button onclick="applyColorSpace('YUV')" class="cyber-button">YUV</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Etiquetado de Componentes Conectados</h2>
+                <div class="button-group">
+                    <button onclick="showBinary()" class="cyber-button">Imagen Binaria</button>
+                    <button onclick="showVec4()" class="cyber-button">Vecindad-4</button>
+                    <button onclick="showVec8()" class="cyber-button">Vecindad-8</button>
+                    <button onclick="showContours()" class="cyber-button">Contornos</button>
+                </div>
+            </div>
+
+<script>
+function showChannel(channel) {
+    fetch('/show_channel', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            channel: channel,
+            image_number: currentImage
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            showError(data.error);
+        } else {
+            document.getElementById('processedImage').src = 'data:image/png;base64,' + data.image;
+            showSuccess(data.message);
+        }
+    })
+    .catch(error => {
+        showError('Error al mostrar el canal: ' + error);
+    });
+}
+
+function applyColorSpace(space) {
+    fetch('/apply_color_space', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            space: space,
+            image_number: currentImage
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            showError(data.error);
+        } else {
+            document.getElementById('processedImage').src = 'data:image/png;base64,' + data.image;
+            showSuccess(data.message);
+        }
+    })
+    .catch(error => {
+        showError('Error al aplicar el espacio de color: ' + error);
+    });
+}
+
+function showBinary() {
+    fetch('/show_binary', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            image_number: currentImage
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            showError(data.error);
+        } else {
+            document.getElementById('processedImage').src = 'data:image/png;base64,' + data.image;
+            showSuccess(data.message);
+        }
+    })
+    .catch(error => {
+        showError('Error al mostrar la imagen binaria: ' + error);
+    });
+}
+
+function showVec4() {
+    fetch('/show_vec4', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            image_number: currentImage
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            showError(data.error);
+        } else {
+            document.getElementById('processedImage').src = 'data:image/png;base64,' + data.image;
+            showSuccess(data.message);
+        }
+    })
+    .catch(error => {
+        showError('Error al mostrar vecindad-4: ' + error);
+    });
+}
+
+function showVec8() {
+    fetch('/show_vec8', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            image_number: currentImage
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            showError(data.error);
+        } else {
+            document.getElementById('processedImage').src = 'data:image/png;base64,' + data.image;
+            showSuccess(data.message);
+        }
+    })
+    .catch(error => {
+        showError('Error al mostrar vecindad-8: ' + error);
+    });
+}
+
+function showContours() {
+    fetch('/show_contours', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            image_number: currentImage
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            showError(data.error);
+        } else {
+            document.getElementById('processedImage').src = 'data:image/png;base64,' + data.image;
+            showSuccess(data.message);
+        }
+    })
+    .catch(error => {
+        showError('Error al mostrar contornos: ' + error);
+    });
+}
+</script> 
